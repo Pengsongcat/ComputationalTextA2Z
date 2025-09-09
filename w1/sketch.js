@@ -19,22 +19,20 @@ function process(text) {
     return;
   }
 
-  const outLines = [];
-  let prev = tokens[0];
-  let line = [prev];
-
+  const LineList = [];
+  
+  let prevWord = tokens[0];
+  let line = [prevWord];
   for (let i = 1; i < tokens.length; i++) {
-    const w = tokens[i];
+    if (haveSharesLetters(prevWord, tokens[i])) {
+      LineList.push(line.join(' '));
 
-    if (haveSharesLetters(prev, w)) {
-      outLines.push(line.join(' '));
-
-      while (i < tokens.length && haveSharesLetters(prev, tokens[i])) 
+      while (i < tokens.length && haveSharesLetters(prevWord, tokens[i])) 
         i++;
 
       if (i < tokens.length) {
-        prev = tokens[i];
-        line = [prev];
+        prevWord = tokens[i];
+        line = [prevWord];
       } 
       else {
         line = [];
@@ -42,14 +40,15 @@ function process(text) {
       }
     } 
     else {
-      line.push(w);
-      prev = w;
+      line.push(tokens[i]);
+      prevWord = tokens[i];
     }
   }
 
-  if (line.length) outLines.push(line.join(' '));
-
-  outputP.html(outLines.join('<br>'));
+  if (line.length) 
+    LineList.push(line.join(' '));
+  
+  outputP.html(LineList.join('<br>'));
 }
 
 function haveSharesLetters(w1, w2){
