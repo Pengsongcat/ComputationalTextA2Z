@@ -40,7 +40,6 @@ function draw() {
   if (frameCount % 5 === 0 && keys.length > 0) {    // generate a dropping ball every 5 frames
     let c = random(keys);
     let count = counts[c];
-    let maxCount = counts[keys[0]];
 
     // apply log scale
     let radius = 20 + map(Math.log(count), Math.log(1), Math.log(maxCount), 5, -5);    // calculate radius base on freq
