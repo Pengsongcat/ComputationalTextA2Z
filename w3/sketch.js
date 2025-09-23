@@ -11,7 +11,7 @@ let houseWords;
 let sentence = "";
 
 async function setup() {
-  let response = await fetch('/json/game-of-thrones-houses.json');
+  let response = await fetch('json/game-of-thrones-houses.json');
   houseJson = await response.json();
   processHouseJson();
   
