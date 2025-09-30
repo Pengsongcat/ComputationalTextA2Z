@@ -72,6 +72,59 @@ let data = {
   ]
 }
 
+buttonData = {
+  "start": [
+    "#[emo:#emoji#]buttonText#"
+  ],
+
+  "buttonText": [
+    "#words#",
+    "#emo# #words#",
+    "#emo# #words# #emo#",
+    "#words# #emo#",
+  ],
+  
+  "words": [
+    "Delicious ...?", 
+    "More Please",
+    "Can't Wait",
+    "What's for dinner this time?",
+    "One more, please",
+    "Ewww",
+    "Yum?",
+    "Hmm...",
+    "Sure, why not",
+    "That looks… fine",
+    "Not sure if edible",
+    "I guess I'll try it",
+    "Better than yesterday",
+    "Still moving?",
+    "This again?",
+    "It smells alive",
+    "Why is it wiggling?",
+    "I thought it was extinct",
+    "Is it supposed to twitch?",
+    "Looks perfectly… normal",
+    "I'll pretend that's food ...",
+    "Strangely appetizing",
+    "Unexpected texture",
+    "Suspiciously quiet",
+    "Do I really want this?",
+    "Might regret it later ...",
+    "Should I chew slowly?",
+    "That can't be legal",
+    "Smells like last week's dinner",
+    "Why is it looking back at me?",
+    "Odd choice for dessert",
+    "Maybe just a sip",
+    "Not what I ordered"
+  ],
+
+  "emoji":[
+    "💀", "👻", "🧟‍♂️", "🧛‍♀️", "🕷️", "🦇", "🍽️", "🍲", "🍛", "🍜", "🍝", "🍣", "🍤", "🍢", "🍡", "🍧", "🍨", "🍦"
+  ]
+}
+
 
 
 
@@ -84,24 +137,27 @@ let palettes = [
   { bg: "#2b2b3a", menu: "#f0f0ff" },
   { bg: "#2c102b", menu: "#fff0f0" }
 ];
+
 let day = 0;
+let p;
+let button;
 
 function setup() {
   noCanvas();
   // Make the grammar
   grammar = tracery.createGrammar(data);
+  buttonGrammar = tracery.createGrammar(buttonData);
 
-  // A button to generate a new sentence
-  let button = select('#generate');
+  p = select('#menu');
+  button = select('#generate');
   button.mousePressed(generate);
 
   generate();
 }
 
 function generate() {
-  let expansion = grammar.flatten('#start#');
-  let p = select('#menu');
-  p.html(expansion);
+  p.html(grammar.flatten('#start#'));
+  button.html(buttonGrammar.flatten('#start#'));
 
   day = (day + 1) % palettes.length;
   let choice = palettes[day];
