@@ -1,7 +1,117 @@
-html, body {
-  margin: 50;
-  padding: 50;
+/* 简约复古风格 - 绿色主题 */
+:root {
+  --bg-color: #0a0f0a;
+  --text-color: #d0e0d0;
+  --accent-color: #00ff66;
+  --border-color: #1a2f1a;
 }
-canvas {
-  display: block;
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: Verdana, Geneva, sans-serif;
+  line-height: 1.6;
+}
+
+.page-container {
+  width: 90%;
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  text-align: center;
+}
+
+header {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+h1 {
+  color: var(--accent-color);
+  font-size: 26px;
+  margin: 0;
+  padding: 20px 0;
+  letter-spacing: 0.5px;
+  font-weight: normal;
+  width: 100%;
+  text-align: center;
+}
+
+.control-panel {
+  text-align: center;
+  margin: 30px 0;
+}
+
+button {
+  background-color: var(--bg-color);
+  color: var(--accent-color);
+  border: 1px solid var(--accent-color);
+  padding: 12px 24px;
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  background-color: var(--accent-color);
+  color: var(--bg-color);
+}
+
+.output-container {
+  border: 1px solid var(--border-color);
+  background-color: rgba(255, 255, 255, 0.03);
+  padding: 25px;
+  margin-top: 30px;
+  text-align: left;
+}
+
+.output-container p {
+  margin: 15px 0;
+  line-height: 1.6;
+  text-align: left;
+}
+
+/* 输出内容样式 */
+.output-container p:nth-child(1) {
+  color: var(--accent-color);
+  font-size: 18px;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.output-container p:nth-child(2) {
+  color: var(--text-color);
+  opacity: 0.8;
+  font-size: 14px;
+  text-align: left;
+}
+
+.output-container p:nth-child(3) {
+  color: var(--text-color);
+  font-size: 14px;
+  line-height: 1.8;
+  text-align: left;
+}
+
+/* 响应式设计 */
+@media (max-width: 600px) {
+  .page-container {
+    width: 95%;
+    margin: 20px auto;
+  }
+  
+  h1 {
+    font-size: 20px;
+    padding: 15px;
+  }
+  
+  .output-container {
+    padding: 20px;
+  }
 }

@@ -13,10 +13,9 @@ let possPlaceholder = "";
 
 async function setup() {
   noCanvas();
-  button = createButton("Generate").mousePressed(generateText); 
+  button = select('#generateBtn');
   button.mousePressed(generateText);
-  textOriginal = createP("");
-  textOutput = createP("");
+  textOutput = select('#output');
 
   /* for persona generation */
   markov = RiTa.markov(4);
