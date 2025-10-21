@@ -13,7 +13,7 @@ let possPlaceholder = "";
 
 async function setup() {
   noCanvas();
-  button = createButton("Generate Text").mousePressed(generateText); 
+  button = createButton("Generate").mousePressed(generateText); 
   button.mousePressed(generateText);
   textOriginal = createP("");
   textOutput = createP("");
@@ -27,6 +27,7 @@ async function setup() {
   await addMarkov("data/xenofeminism.txt");
   // await addMarkov("data/Metamorphosis.txt");
   await addMarkov("data/frankenstein.txt");
+
   await createLexicon();    // build substitue lexicon
   // Load names list, this is a little fix for dataset personas.txt
   let namesJson = await loadJSON("data/nemotron_personas_names.json");
