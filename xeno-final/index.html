@@ -1,22 +1,30 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-  <script src="https://cdn.jsdelivr.net/npm/p5@2.0.5/lib/p5.js"></script>
-  <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-  <script src="tracery.js"></script>
-  <link rel="stylesheet" type="text/css" href="style.css">
+<html lang="en">
+<head>
   <meta charset="utf-8">
-
+  <script src="https://cdn.jsdelivr.net/npm/p5@2.0.5/lib/p5.js"></script>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script src="tracery.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <title>XENO Visitor Visa</title>
 </head>
 
 <body>
-  <h1 id="title">Tonight's Addams Family Dinner Menu</h1>
-  <p>
-    <p id="menu"></p>
-    <br>
-    <button id="generate">Next Day ... </button>
-  </p>
-  
+  <div id="visa-container">
+    <div id="visa-header">XENO FEDERATION — VISA</div>
+
+    <div id="visa-body">
+      <div id="visa-photo"></div>
+
+      <div id="visa-info"></div>
+    </div>
+
+    <div id="visa-mrz"></div>
+
+    <button id="generate">Generate New Visa</button>
+  </div>
+
   <script src="grammar.js"></script>
-  <script src="sketch.js"></script>
-  
-</body></html>
+  <script src="visa.js"></script>
+</body>
+</html>

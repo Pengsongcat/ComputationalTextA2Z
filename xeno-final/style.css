@@ -1,51 +1,165 @@
-html, body {
-  background: #00000000;
-  height: 100%;
-  margin: 50;
-  padding: 0;
-  display: flex;  
-  flex-direction: column; 
-  align-items: center; 
-  font-family: "Georgia", serif;
-  text-align: center;
+/* 定义千禧+外星风格的颜色变量 */
+:root {
+    --y2k-pink: #ff00ff;     /* 洋红，高饱和度 */
+    --y2k-green: #00ff00;    /* 荧光绿 */
+    --y2k-cyan: #00ffff;     /* 荧光青 */
+    --y2k-bg: #0d0d0d;       /* 几乎纯黑的背景 */
+    --y2k-shadow: #ff66ff;   /* 阴影颜色 */
+    --y2k-border: #444444;
 }
 
-#title {
-  margin-top: 80px;
-  margin-bottom: 20px;
-  font-size: 36px;
-  color: #ffffff;
-  text-shadow: 2px 2px 4px #000000aa;
+body {
+    /* 深色背景 + 扫描线效果 */
+    background: var(--y2k-bg);
+    background-image: 
+        linear-gradient(rgba(0, 255, 0, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 0, 255, 0.1) 1px, transparent 1px);
+    background-size: 5px 5px; /* 密集的网格 */
+    font-family: "Courier New", monospace; /* 低保真/代码感字体 */
+    color: var(--y2k-green);
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    filter: drop-shadow(0 0 5px rgba(0, 255, 0, 0.5)); /* 全局发光 */
 }
 
-#menu {
-  background-color: #ffffff; 
-  border: 2px solid #333; 
-  padding: 50px 80px;  
-  width: 400px;
-  font-size: 18px;
-  line-height: 2em;
-  box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.8); 
+#visa-container {
+    width: 650px;
+    background: #1a1a1a; /* 卡片背景略微提亮 */
+    padding: 0;
+    border: 3px solid var(--y2k-pink); /* 粗糙的洋红边框 */
+    box-shadow: 
+        5px 5px 0 0 var(--y2k-green), /* 模仿 Y2K 3D 效果 */
+        -5px -5px 0 0 var(--y2k-cyan);
+    transform: skewX(-2deg); /* 轻微倾斜，增加荒谬和动态感 */
+    position: relative;
+    overflow: hidden;
 }
 
-.menu-title {
-  font-size: 20px;  
-  font-weight: bold;           
-  text-transform: uppercase;    
-  letter-spacing: 2px;    
-  text-shadow: 1px 1px 2px #000000aa; 
-  margin: 15px 0 10px 0
+/* 头部：故障艺术风格 */
+#visa-header {
+    background: var(--y2k-pink);
+    color: var(--y2k-bg);
+    font-size: 28px;
+    padding: 15px 25px;
+    letter-spacing: 5px;
+    font-weight: 900;
+    text-shadow: 2px 2px 0 var(--y2k-green); /* 颜色偏移阴影 */
+    border-bottom: 5px dashed var(--y2k-green); /* 破损的虚线 */
+    clip-path: polygon(0 0, 95% 0, 100% 100%, 0% 100%); /* 头部几何切角 */
 }
 
+#visa-body {
+    display: flex;
+    padding: 30px 20px 20px 30px;
+    gap: 30px;
+    border: 1px dashed var(--y2k-cyan); /* 内容区用青色虚线边框 */
+}
+
+/* 照片区：低保真屏幕感 */
+#visa-photo {
+    width: 140px;
+    height: 170px;
+    background: var(--y2k-bg);
+    border: 5px inset var(--y2k-cyan); /* 3D 凹陷边框 */
+    box-shadow: 0 0 15px var(--y2k-cyan); /* 照片微光 */
+    flex-shrink: 0;
+    position: relative;
+}
+/* 模拟照片上的扫描线或静态干扰 */
+#visa-photo::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.1) 50%, transparent 50%);
+    background-size: 100% 4px;
+    pointer-events: none;
+    animation: scanline 0.5s infinite step-end; /* 添加轻微动画 */
+}
+
+@keyframes scanline {
+    to { background-position: 0 4px; }
+}
+
+
+#visa-info {
+    flex: 1;
+    font-size: 14px;
+    line-height: 1.2; /* 紧凑行高，增强压迫感 */
+    font-family: 'Times New Roman', serif; /* 荒谬地使用老式衬线体 */
+}
+
+/* 信息行的荒谬布局 */
+.field {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 10px;
+    padding-bottom: 2px;
+    /* 取消边框，使用更抽象的分隔 */
+}
+
+.label {
+    width: 180px; 
+    min-width: 180px; 
+    font-weight: 700; 
+    color: var(--y2k-pink); /* 标签使用洋红 */
+    flex-shrink: 0;
+    padding-right: 10px;
+    text-transform: uppercase;
+    text-decoration: underline wavy var(--y2k-cyan) 1px; /* 波浪下划线 */
+    line-height: 1.5; 
+}
+
+.value {
+    flex: 1;
+    white-space: normal;
+    word-break: break-word;
+    color: var(--y2k-green); /* 值使用荧光绿 */
+    font-weight: 400; 
+    font-size: 1.1em; /* 值略大 */
+    line-height: 1.5; 
+    filter: brightness(1.2); /* 提高亮度，模拟发光 */
+}
+
+/* MRZ：故障代码区 */
+#visa-mrz {
+    font-family: "OCR-A", monospace;
+    font-size: 18px; 
+    background: var(--y2k-bg); 
+    border: 3px double var(--y2k-pink); /* 双线边框 */
+    border-top: none;
+    padding: 10px 20px;
+    letter-spacing: 5px; 
+    color: var(--y2k-green);
+    font-weight: 700;
+    text-align: center;
+}
+
+/* 按钮：强调 Y2K 3D 效果 */
 button {
-  all: unset;    
-  cursor: pointer; 
-  font-size: 20px;
-  color: #ffffff8e;
-  text-decoration: underline; 
-  transition: color 0.1s ease;
+    width: 100%;
+    padding: 16px;
+    font-size: 18px;
+    font-weight: 900;
+    background: var(--y2k-pink);
+    color: var(--y2k-bg);
+    border: 5px outset var(--y2k-green); /* 浮雕效果 */
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.05s linear;
 }
 
 button:hover {
-  color: #ffffff; 
+    background: var(--y2k-cyan);
+    color: var(--y2k-bg);
+    border: 5px inset var(--y2k-pink); /* 悬停时凹陷 */
+}
+
+button:active {
+    border-style: inset;
+    transform: translateY(2px);
 }
