@@ -41,6 +41,7 @@ function generate() {
   let ageKey = "#age_undefined#";
   if (ageMode === "number") ageKey = "#age_number#";
   if (ageMode === "cycle") ageKey = "#age_cycle#";
+  if (ageMode === "undefined") ageKey = "#age_undefined#";
   // ageMode undefined → fallback to #age_undefined#
 
   // EMBODIED MODE
