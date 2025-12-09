@@ -1,35 +1,110 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="css/question.css">
-    <script src="js/storage.js"></script>
+  <meta charset="UTF-8">
+  <script src="js/storage.js"></script>
+
+  <style>
+    body.question-body {
+        background: #011520;
+        color: #ffffff;
+        font-family: Verdana, sans-serif;
+
+        background-image: linear-gradient(rgba(0,80,0,0.15) 1px, transparent 1px);
+        background-size: 100% 2px;
+
+        margin-left: 500px;
+        margin-top: 120px;
+    }
+
+    .q-block {
+        margin-bottom: 25px;
+    }
+
+    .q-label {
+        font-size: 15px;
+        font-weight: bold;
+        margin-bottom: 6px;
+    }
+
+    .q-text {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+
+    .option-line {
+        font-size: 14px;
+        margin: 6px 0;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    button {
+        margin-top: 10px;
+        padding: 6px 16px;
+        background: #747881;
+        border: 2px solid #000;
+        color: #000;
+        font-family: Verdana, sans-serif;
+        cursor: pointer;
+    }
+
+    button:hover {
+        position: relative;
+        left: 1px;
+        top: -1px;
+    }
+
+    button:active {
+        position: relative;
+        left: -1px;
+        top: 1px;
+    }
+  </style>
 </head>
 
 <body class="question-body">
 
-<div class="question-container">
+  <div class="q-block">
+    <div class="q-label">XENO Entry Officer:</div>
+    <div class="q-text">How do you perceive the passage of time?</div>
+  </div>
 
-    <h2 class="q-title">PRE-ENTRY CHECKPOINT 03</h2>
+  <div class="q-block">
+    <div class="q-label">You:</div>
+    <label class="option-line">
+      <input type="radio" name="ageMode" value="linear">
+      A continuous line
+    </label>
 
-    <p class="q-text">
-      The Federation requires clarification<br>
-      on your preferred embodiment tendencies.
-    </p>
+    <label class="option-line">
+      <input type="radio" name="ageMode" value="cyclical">
+      Repeating cycles
+    </label>
 
-    <label>Your Embodied Mode (legacy form)</label>
-    <input id="embodied" type="text">
+    <label class="option-line">
+      <input type="radio" name="ageMode" value="event">
+      Through significant events
+    </label>
 
-    <button id="next">Continue</button>
-</div>
+    <label class="option-line">
+      <input type="radio" name="ageMode" value="variable">
+      Ever-changing flow
+    </label>
 
-<script>
-document.getElementById("next").onclick = () => {
-    saveAnswer("embodied", 
-        document.getElementById("embodied").value
-    );
-    window.location.href = "question3.html";
-};
-</script>
+  </div>
+
+  <button id="next">Continue</button>
+
+  <script>
+    document.getElementById("next").onclick = () => {
+      const selected = document.querySelector('input[name="ageMode"]:checked');
+      if (!selected) return alert("Please select one option.");
+      saveAnswer("ageMode", selected.value);
+      window.location.href = "question3.html";
+    };
+  </script>
 
 </body>
 </html>

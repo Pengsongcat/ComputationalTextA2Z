@@ -1,24 +1,88 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="css/question.css">
+  <meta charset="UTF-8">
   <script src="js/storage.js"></script>
+
+  <style>
+    body.question-body {
+        background: #150837;
+        color: #fff;
+        font-family: Verdana, sans-serif;
+        background-image: linear-gradient(rgba(0,80,0,0.15) 1px, transparent 1px);
+        background-size: 100% 2px;
+        margin-left: 200px;
+        margin-top: 200px;
+    }
+
+    .q-block {
+        margin-bottom: 25px;
+    }
+
+    .q-label {
+        font-size: 15px;
+        font-weight: bold;
+        margin-bottom: 6px;
+        color: #ffffff;
+        letter-spacing: 0.5px;
+    }
+
+    .q-text {
+        font-size: 14px;
+        color: #fff;
+        margin-bottom: 5px;
+    }
+
+    .q-input {
+        width: 320px;
+        padding: 5px;
+        border: 1px solid #000;
+        font-family: Verdana, sans-serif;
+        color: #000;
+        background: #e6e6e6;
+    }
+
+    button {
+        margin-top: 10px;
+        padding: 6px 16px;
+        background: #817474;
+        border: 2px solid #000;
+        color: #000;
+        font-family: Verdana, sans-serif;
+        cursor: pointer;
+    }
+
+    button:hover {
+        position: relative;
+        left: 1px;
+        top: -1px;
+    }
+
+    button:active {
+        position: relative;
+        left: -1px;
+        top: 1px;
+    }
+  </style>
+
 </head>
 
 <body class="question-body">
 
   <div class="question-container">
-    <h2 class="q-title">Pre-Entry Assessment – Segment 1</h2>
 
-    <p class="q-text">
-      Before generating your XENO Visa,<br>
-      please provide the following information.
-    </p>
+    <div class="q-block">
+      <div class="q-label">XENO Entry Officer:</div>
+      <div class="q-text">What is your name?</div>
+    </div>
 
-    <label>Your Name</label>
-    <input id="q-name" type="text">
+    <div class="q-block">
+      <div class="q-label">You:</div>
+      <input id="q-name" type="text" class="q-input">
+    </div>
 
     <button id="next">Continue</button>
+
   </div>
 
   <script>

@@ -22,8 +22,13 @@ function setup() {
 
 function generate() {
 
-  let name = grammar.flatten('#name#');
+  let name = getAnswer("givenName");
+
+  // CFG
   let pron = grammar.flatten('#pron#');
+  let ageMode = getAnswer("ageMode");
+  
+
   let age = grammar.flatten('#age#');
   let embodied = grammar.flatten('#embodied_mode#');
   let repro = grammar.flatten('#repro_pattern#');
@@ -32,6 +37,7 @@ function generate() {
   let relation = grammar.flatten('#relational_config#');
   let visaCode = random(["X1","X2","R1","R2","P1","L1"]);
 
+  // other info generation
   let issue = new Date();
   let exp = new Date(issue);
   exp.setFullYear(issue.getFullYear() + 5);
