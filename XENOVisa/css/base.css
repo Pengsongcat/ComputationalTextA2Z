@@ -1,15 +1,20 @@
 body.landing-body {
-    background: #21122e;  
-    color: #e6e6e6;
     margin: 0;
     padding: 0;
+    background-color: #3f1b5f;
 
     background-image:
-      linear-gradient(rgba(0, 80, 0, 0.15) 1px, transparent 1px);
-    background-size: 100% 3px;
+        url("../imgs/bg.jpg"),
+        linear-gradient(rgba(0,80,0,0.15) 1px, transparent 1px);
 
+    background-size: cover, 100% 2px;
+
+    background-blend-mode: multiply;
+
+    color: #e6e6e6;
     font-family: Verdana, Arial, sans-serif;
 }
+
 
 .landing-container {
     width: 600px;
