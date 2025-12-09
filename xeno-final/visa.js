@@ -22,7 +22,6 @@ function setup() {
 
 function generate() {
 
-  // —— 抽取 CFG 字段 ——
   let name = grammar.flatten('#name#');
   let pron = grammar.flatten('#pron#');
   let age = grammar.flatten('#age#');
@@ -33,7 +32,6 @@ function generate() {
   let relation = grammar.flatten('#relational_config#');
   let visaCode = random(["X1","X2","R1","R2","P1","L1"]);
 
-  // —— 日期 ——
   let issue = new Date();
   let exp = new Date(issue);
   exp.setFullYear(issue.getFullYear() + 5);
@@ -41,10 +39,8 @@ function generate() {
   let issueStr = formatDate(issue);
   let expStr = formatDate(exp);
 
-  // —— 控制编号 ——
   let controlNumber = makeControlNumber(issue);
 
-  // —— 信息排版（自动缩进） ——
   function wrapField(label, value) {
     return `
       <div class="field">
@@ -60,19 +56,51 @@ function generate() {
     ${wrapField("Visa Type / Class:", visaCode)}
     ${wrapField("Pronoun Mode:", pron)}
     ${wrapField("Age:", age)}
-    ${wrapField("Embodied Mode [Legacy Gender]:", embodied)}
+    ${wrapField("Embodied Mode\n[Legacy Gender]:", embodied)}
     ${wrapField("Body Form:", bodyform)}
     ${wrapField("Mental Form:", mental)}
-    ${wrapField("Reproduction Pattern:", repro)}
-    ${wrapField("Relational Config:", relation)}
+    ${wrapField("Reproduction\nPattern:", repro)}
+    ${wrapField("Relational\nConfiguration:", relation)}
     ${wrapField("Issue Date:", issueStr)}
     ${wrapField("Expiration Date:", expStr)}
   `;
 
   select('#visa-info').html(html);
 
-  // —— MRZ —— (可以更外星一点)
-  select('#visa-mrz').html(
-    `XENO<<${name.toUpperCase().replace(/ /g, "<")}<<${visaCode}<<${controlNumber.replace(/-/g,"")}<`
-  );
+  let mrzHTML = generateMRZ(name, embodied, visaCode, controlNumber);
+  select('#visa-mrz').html(mrzHTML);
 }
+
+function esc(x) {
+  return x.replace(/</g, "&lt;");
+}
+
+function cleanMRZ(x) {
+  return x
+    .toUpperCase()
+    .replace(/[^A-Z]/g, "")     // remove spaces, hyphens, symbols
+    .slice(0, 12);               // limit length (MRZ-style)
+}
+
+function generateMRZ(name, embodied, visaCode, controlNumber) {
+
+  let nameMRZ = cleanMRZ(name);
+  let embodiedMRZ = cleanMRZ(embodied);
+
+  // Line 1
+  let line1 = `XENO&lt;&lt;${nameMRZ}&lt;&lt;${embodiedMRZ}&lt;`;
+  line1 = padMRZ(line1);
+
+  // Line 2
+  let line2 = `${visaCode}&lt;${controlNumber.replace(/-/g,"")}&lt;`;
+  line2 = padMRZ(line2);
+
+  return `${line1}${line2}`;
+}
+
+function padMRZ(str, length=44) {
+  // counts HTML entity as 4 chars, but visually it's OK
+  while (str.length < length) str += "&lt;";
+  return str;
+}
+

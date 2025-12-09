@@ -1,165 +1,160 @@
-/* 定义千禧+外星风格的颜色变量 */
+/* 定义高饱和度的 Y2K 颜色变量 */
 :root {
-    --y2k-pink: #ff00ff;     /* 洋红，高饱和度 */
-    --y2k-green: #00ff00;    /* 荧光绿 */
-    --y2k-cyan: #00ffff;     /* 荧光青 */
-    --y2k-bg: #0d0d0d;       /* 几乎纯黑的背景 */
-    --y2k-shadow: #ff66ff;   /* 阴影颜色 */
-    --y2k-border: #444444;
+    --y2k-pink: #ff00ff;       /* 洋红，标签色/主色 */
+    --y2k-green: #00ff00;      /* 荧光绿，内容色 */
+    --y2k-cyan: #00ffff;       /* 荧光青，边框/辅助色 */
+    --dark-bg: #030303;        /* 接近纯黑的背景 */
+    --card-bg: #111111;        /* 卡片背景 */
+    --text-color-main: #f0f0f0; /* 基础白色文本 */
 }
 
 body {
-    /* 深色背景 + 扫描线效果 */
-    background: var(--y2k-bg);
+    background: var(--dark-bg);
     background-image: 
         linear-gradient(rgba(0, 255, 0, 0.1) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255, 0, 255, 0.1) 1px, transparent 1px);
-    background-size: 5px 5px; /* 密集的网格 */
-    font-family: "Courier New", monospace; /* 低保真/代码感字体 */
-    color: var(--y2k-green);
+    background-size: 8px 8px; 
+    
+    font-family: "Courier New", monospace; 
+    color: var(--text-color-main); 
     display: flex;
-    justify-content: center;
-    padding: 20px;
-    filter: drop-shadow(0 0 5px rgba(0, 255, 0, 0.5)); /* 全局发光 */
+    flex-direction: column; /* 允许垂直排列卡片和按钮 */
+    align-items: center;
+    padding: 30px;
 }
 
 #visa-container {
-    width: 650px;
-    background: #1a1a1a; /* 卡片背景略微提亮 */
+    width: 750px; /* 增加卡片宽度，满足要求 */
+    background: var(--card-bg); 
     padding: 0;
-    border: 3px solid var(--y2k-pink); /* 粗糙的洋红边框 */
-    box-shadow: 
-        5px 5px 0 0 var(--y2k-green), /* 模仿 Y2K 3D 效果 */
-        -5px -5px 0 0 var(--y2k-cyan);
-    transform: skewX(-2deg); /* 轻微倾斜，增加荒谬和动态感 */
+    border: 3px solid var(--y2k-pink); 
+    box-shadow: 0 0 15px rgba(255, 0, 255, 0.6); 
+    
+    /* 保持卡片倾斜 */
+    transform: skewX(-2deg); 
     position: relative;
     overflow: hidden;
+    margin-bottom: 20px; /* 增加与下方按钮的间距 */
 }
 
-/* 头部：故障艺术风格 */
+/* 头部 */
 #visa-header {
     background: var(--y2k-pink);
-    color: var(--y2k-bg);
+    color: var(--dark-bg);
     font-size: 28px;
     padding: 15px 25px;
     letter-spacing: 5px;
     font-weight: 900;
-    text-shadow: 2px 2px 0 var(--y2k-green); /* 颜色偏移阴影 */
-    border-bottom: 5px dashed var(--y2k-green); /* 破损的虚线 */
-    clip-path: polygon(0 0, 95% 0, 100% 100%, 0% 100%); /* 头部几何切角 */
+    text-shadow: 2px 2px 0 var(--y2k-green);
+    border-bottom: 5px dashed var(--y2k-green); 
+    
+    /* 抵消卡片倾斜，使文字保持水平 */
+    transform: skewX(2deg); 
 }
 
 #visa-body {
     display: flex;
-    padding: 30px 20px 20px 30px;
-    gap: 30px;
-    border: 1px dashed var(--y2k-cyan); /* 内容区用青色虚线边框 */
+    padding: 30px 25px; 
+    gap: 40px; /* 增加照片与信息区域的间距 */
+    
+    /* 确保内容区域保持水平 */
+    transform: none; 
 }
 
-/* 照片区：低保真屏幕感 */
+/* 照片区 */
 #visa-photo {
-    width: 140px;
-    height: 170px;
-    background: var(--y2k-bg);
-    border: 5px inset var(--y2k-cyan); /* 3D 凹陷边框 */
-    box-shadow: 0 0 15px var(--y2k-cyan); /* 照片微光 */
+    width: 150px; 
+    height: 180px; 
+    background: #000;
+    border: 3px solid var(--y2k-cyan);
+    box-shadow: 0 0 15px var(--y2k-cyan); 
     flex-shrink: 0;
     position: relative;
 }
-/* 模拟照片上的扫描线或静态干扰 */
-#visa-photo::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: linear-gradient(rgba(255, 255, 255, 0.1) 50%, transparent 50%);
-    background-size: 100% 4px;
-    pointer-events: none;
-    animation: scanline 0.5s infinite step-end; /* 添加轻微动画 */
-}
-
-@keyframes scanline {
-    to { background-position: 0 4px; }
-}
-
 
 #visa-info {
     flex: 1;
-    font-size: 14px;
-    line-height: 1.2; /* 紧凑行高，增强压迫感 */
-    font-family: 'Times New Roman', serif; /* 荒谬地使用老式衬线体 */
+    font-size: 15px;
+    line-height: 1.5;
+    font-family: "Courier New", monospace;
+    display: flex;
+    flex-direction: column;
 }
 
-/* 信息行的荒谬布局 */
+/* 关键样式：标签和值的排版 */
 .field {
     display: flex;
-    align-items: flex-start;
-    margin-bottom: 10px;
-    padding-bottom: 2px;
-    /* 取消边框，使用更抽象的分隔 */
+    align-items: flex-start; 
+    margin-bottom: 12px;
+    padding-bottom: 4px;
+    
+    border-bottom: 1px dotted rgba(255, 0, 255, 0.4); 
 }
 
 .label {
-    width: 180px; 
-    min-width: 180px; 
+    /* 减小标签宽度 (从 250px 减小到 200px)，给绿色内容留出更多空间 */
+    width: 200px; 
+    min-width: 200px; 
     font-weight: 700; 
-    color: var(--y2k-pink); /* 标签使用洋红 */
+    color: var(--y2k-pink); 
     flex-shrink: 0;
-    padding-right: 10px;
+    padding-right: 15px;
     text-transform: uppercase;
-    text-decoration: underline wavy var(--y2k-cyan) 1px; /* 波浪下划线 */
+    
+    /* 允许换行，但更倾向于单行显示 */
+    white-space: pre; 
     line-height: 1.5; 
 }
 
 .value {
-    flex: 1;
+    flex: 1; /* 占据剩余所有空间 (现在更多了) */
     white-space: normal;
     word-break: break-word;
-    color: var(--y2k-green); /* 值使用荧光绿 */
+    
+    color: var(--y2k-green); 
     font-weight: 400; 
-    font-size: 1.1em; /* 值略大 */
     line-height: 1.5; 
-    filter: brightness(1.2); /* 提高亮度，模拟发光 */
+    text-shadow: 0 0 3px rgba(0, 255, 0, 0.4); 
 }
 
-/* MRZ：故障代码区 */
+/* MRZ */
 #visa-mrz {
     font-family: "OCR-A", monospace;
-    font-size: 18px; 
-    background: var(--y2k-bg); 
-    border: 3px double var(--y2k-pink); /* 双线边框 */
-    border-top: none;
-    padding: 10px 20px;
-    letter-spacing: 5px; 
-    color: var(--y2k-green);
+    font-size: 16px; 
+    background: var(--dark-bg); 
+    border-top: 2px solid var(--y2k-pink);
+    padding: 10px 25px;
+    letter-spacing: 4px; 
+    color: var(--y2k-cyan); 
     font-weight: 700;
-    text-align: center;
+    text-align: left;
+    
+    /* 抵消卡片倾斜，使文字保持水平 */
+    transform: skewX(2deg); 
 }
 
-/* 按钮：强调 Y2K 3D 效果 */
+/* 按钮：独立于 #visa-container */
 button {
-    width: 100%;
-    padding: 16px;
+    /* 设置一个固定的、与卡片宽度相匹配的宽度 */
+    width: 750px; 
+    padding: 18px;
     font-size: 18px;
-    font-weight: 900;
+    font-weight: 800;
     background: var(--y2k-pink);
-    color: var(--y2k-bg);
-    border: 5px outset var(--y2k-green); /* 浮雕效果 */
+    color: var(--dark-bg);
+    border: 4px outset var(--y2k-green); 
     cursor: pointer;
     text-transform: uppercase;
     letter-spacing: 2px;
-    transition: all 0.05s linear;
+    transition: all 0.1s ease-in-out;
+    
+    /* 按钮也倾斜 */
+    transform: skewX(-2deg); 
 }
 
 button:hover {
-    background: var(--y2k-cyan);
-    color: var(--y2k-bg);
-    border: 5px inset var(--y2k-pink); /* 悬停时凹陷 */
-}
-
-button:active {
-    border-style: inset;
-    transform: translateY(2px);
+    background: var(--y2k-green);
+    color: var(--dark-bg);
+    border-color: var(--y2k-pink);
+    box-shadow: 0 0 15px var(--y2k-green);
 }
