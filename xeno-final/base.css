@@ -1,0 +1,92 @@
+/* ===== XENO Landing — Early Net.Art / 90s Lo-Fi ===== */
+
+body.landing-body {
+    background: #21122e;                /* 深绿 CRT */
+    color: #e6e6e6;
+    margin: 0;
+    padding: 0;
+
+    /* 粗糙扫描线，比之前更难看一点 */
+    background-image:
+      linear-gradient(rgba(0, 80, 0, 0.15) 1px, transparent 1px);
+    background-size: 100% 3px;
+
+    font-family: Verdana, Arial, sans-serif;
+}
+
+/* 内容容器：极简、居中、像原始 HTML <center> */
+.landing-container {
+    width: 600px;
+    margin: 100px auto;
+    text-align: center;
+
+    /* 粗糙块状背景：旧网页感 */
+    background: #fffff0;
+    border: 1px solid #333;
+    padding: 40px 20px;
+
+    /* 去掉“设计感”，反而让它更像早期网页 */
+    box-shadow: none;
+}
+
+.landing-title {
+    font-size: 26px;
+    font-weight: bold;
+    color: #ffffff;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+
+    border-bottom: 1px solid #444;
+    display: inline-block;
+    padding-top: 50px;
+    padding-bottom: 5px;
+
+    text-align: center;
+    width: 100%;
+}
+
+
+/* 文本：像旧网页的公告，没有排版设计 */
+.landing-text {
+    color: #111;
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 40px;
+}
+
+/* 粗糙按钮：真正的90年代风格，不做Win95效果 */
+.landing-button {
+    display: inline-block;
+    padding: 6px 20px;
+
+    background: #dddddd;
+    border: 2px solid #000;
+    color: #000;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    /* 像被手动做歪的 */
+    position: relative;
+    top: 1px;
+}
+
+/* hover：像坏掉一样简单移动一像素 */
+.landing-button:hover {
+    top: 0px;
+    left: 1px;
+}
+
+/* 整页淡入，但不要太顺滑（更粗糙） */
+.landing-container {
+    animation: lfFade 1s steps(4) forwards;
+}
+
+@keyframes lfFade {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
