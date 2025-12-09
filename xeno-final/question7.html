@@ -6,15 +6,15 @@
 
   <style>
     body.question-body {
-        background: #001e15;
+        background: #06001e;
         color: #ffffff;
         font-family: Verdana, sans-serif;
 
         background-image: linear-gradient(rgba(67, 23, 59, 0.15) 1px, transparent 1px);
         background-size: 100% 2px;
 
-        margin-left: 350px;
-        margin-top: 400px;
+        margin-left: 800px;
+        margin-top: 430px;
     }
 
     .q-block {
@@ -70,40 +70,35 @@
 
     <div class="q-block">
       <div class="q-label">XENO Entry Officer:</div>
-      <div class="q-text">How would you say your mind tends to move?</div>
+      <div class="q-text">What pattern best describes how you relate to others?</div>
     </div>
 
     <div class="q-block">
       <div class="q-label">You:</div>
 
       <label class="option-line">
-        <input type="radio" name="mental" value="stream">
-        A single clear line
+        <input type="radio" name="relation" value="self">
+        Self-aligned
       </label>
 
       <label class="option-line">
-        <input type="radio" name="mental" value="resonant">
-        Soft layers drifting over each other
+        <input type="radio" name="relation" value="paired">
+        Paired
       </label>
 
       <label class="option-line">
-        <input type="radio" name="mental" value="weave">
-        Threads branching and weaving outward
+        <input type="radio" name="relation" value="multi">
+        Multi-linked
       </label>
 
       <label class="option-line">
-        <input type="radio" name="mental" value="flare">
-        Sudden flashes or bursts
+        <input type="radio" name="relation" value="momentary">
+        Momentary
       </label>
 
       <label class="option-line">
-        <input type="radio" name="mental" value="inward">
-        A slow inward descent
-      </label>
-
-      <label class="option-line">
-        <input type="radio" name="mental" value="scatter">
-        Many small lights flickering in different places
+        <input type="radio" name="relation" value="none">
+        Non-aligned
       </label>
 
     </div>
@@ -114,13 +109,16 @@
 
   <script>
     document.getElementById("next").onclick = () => {
-      let selected = document.querySelector('input[name="mental"]:checked');
+      let selected = document.querySelector('input[name="relation"]:checked');
       if (!selected) return alert("Please choose one.");
 
-      saveAnswer("mentalForm", selected.value);
-      window.location.href = "question6.html";
+      saveAnswer("relationalMode", selected.value);
+      window.location.href = "visa.html";
     };
   </script>
+
+</body>
+
 
 </body>
 </html>

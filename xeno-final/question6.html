@@ -6,7 +6,7 @@
 
   <style>
     body.question-body {
-        background: #001e15;
+        background: #240028;
         color: #ffffff;
         font-family: Verdana, sans-serif;
 
@@ -70,40 +70,30 @@
 
     <div class="q-block">
       <div class="q-label">XENO Entry Officer:</div>
-      <div class="q-text">How would you say your mind tends to move?</div>
+      <div class="q-text">Under what conditions do you feel the energy to extend yourself?</div>
     </div>
 
     <div class="q-block">
       <div class="q-label">You:</div>
 
       <label class="option-line">
-        <input type="radio" name="mental" value="stream">
-        A single clear line
+        <input type="radio" name="repro" value="natural">
+        During stable periods
       </label>
 
       <label class="option-line">
-        <input type="radio" name="mental" value="resonant">
-        Soft layers drifting over each other
+        <input type="radio" name="repro" value="emotional">
+        During emotional surges
       </label>
 
       <label class="option-line">
-        <input type="radio" name="mental" value="weave">
-        Threads branching and weaving outward
+        <input type="radio" name="repro" value="interaction">
+        During contact with external entities
       </label>
 
       <label class="option-line">
-        <input type="radio" name="mental" value="flare">
-        Sudden flashes or bursts
-      </label>
-
-      <label class="option-line">
-        <input type="radio" name="mental" value="inward">
-        A slow inward descent
-      </label>
-
-      <label class="option-line">
-        <input type="radio" name="mental" value="scatter">
-        Many small lights flickering in different places
+        <input type="radio" name="repro" value="random">
+        Without identifiable pattern
       </label>
 
     </div>
@@ -114,13 +104,13 @@
 
   <script>
     document.getElementById("next").onclick = () => {
-      let selected = document.querySelector('input[name="mental"]:checked');
+      let selected = document.querySelector('input[name="repro"]:checked');
       if (!selected) return alert("Please choose one.");
 
-      saveAnswer("mentalForm", selected.value);
-      window.location.href = "question6.html";
+      saveAnswer("reproductionMode", selected.value);
+      window.location.href = "question7.html";
     };
   </script>
-
+</body>
 </body>
 </html>
