@@ -16,7 +16,7 @@ function makeControlNumber(date) {
 function setup() {
   noCanvas();
   grammar = tracery.createGrammar(data);
-  select('#generate').mousePressed(generate);
+  // select('#generate').mousePressed(generate);
   generate();
 }
 

@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <script src="https://cdn.jsdelivr.net/npm/p5@2.0.5/lib/p5.js"></script>
   <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-  <script src="tracery.js"></script>
-  <link rel="stylesheet" href="style.css">
+  <script src="js/tracery.js"></script>
+  <link rel="stylesheet" href="css/style.css">
   <title>XENO Visitor Visa</title>
 </head>
 
@@ -36,7 +36,13 @@ Keep this visa accessible during all inter-reality transitions.
 
 <button id="generate">Start A New Application</button>
 
-  <script src="grammar.js"></script>
-  <script src="visa.js"></script>
+  <script src="js/grammar.js"></script>
+  <script src="js/visa.js"></script>
+  <script>
+  document.getElementById("generate").onclick = () => {
+      window.location.href = "index.html"; 
+  };
+  </script>
+
 </body>
 </html>

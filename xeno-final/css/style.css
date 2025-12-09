@@ -1,6 +1,3 @@
-/* ===== XENO VISA — Early Net.Art / 90s Lo-Fi ===== */
-
-/* CRT 背景：暗绿 + 更明显扫描线 */
 body {
     background: #001a10;
     color: #000;
@@ -15,7 +12,6 @@ body {
     background-size: 100% 3px;
 }
 
-/* 主容器：取消现代阴影 → 使用粗糙边框 + 轻微偏移 */
 #visa-container {
     width: 720px;
     margin: 40px auto;
@@ -23,12 +19,10 @@ body {
     background: #fffef0;
     border: 2px solid #222;
 
-    /* 粗糙偏移阴影，而不是现代 box-shadow */
     box-shadow: 3px 3px 0 #000; 
     padding: 25px;
 }
 
-/* Header：老式网页标题风格 */
 #visa-header {
     font-weight: bold;
     font-size: 15px;
@@ -36,18 +30,15 @@ body {
     text-transform: uppercase;
     padding-bottom: 4px;
 
-    /* 粗糙细线 */
     border-bottom: 1px solid #666;
     margin-bottom: 20px;
 }
 
-/* 主体布局：保持 flex，但看起来更像 table */
 #visa-body {
     display: flex;
     gap: 20px;
 }
 
-/* 照片框：降低设计感，偏向早期网页的“灰色块” */
 #visa-photo {
     width: 150px;
     height: 190px;
@@ -57,13 +48,11 @@ body {
     box-shadow: inset 1px 1px 0 #000;
 }
 
-/* 字段容器 */
 .field {
     display: flex;
     margin-bottom: 6px;
 }
 
-/* 标签：更土、更 90s admin form 风格 */
 .label {
     width: 180px;
     min-width: 180px;
@@ -74,14 +63,12 @@ body {
     white-space: pre-line;
 }
 
-/* 标签结尾冒号（保留，但更粗糙） */
 .label::after {
     content: ":";
     position: absolute;
     right: 2px;
 }
 
-/* 值：弱化颜色，更低对比度 */
 .value {
     flex: 1;
     color: #222;
@@ -89,7 +76,6 @@ body {
     word-wrap: break-word;
 }
 
-/* MRZ 区：像旧护照机读条 */
 #visa-mrz {
     font-family: "Courier New", monospace;
     background: #e8e6d8;
@@ -104,7 +90,6 @@ body {
     color: #000;
 }
 
-/* 按钮：早期网页的土按钮（不再 Win95） */
 button, #generate {
     width: 260px;
     margin: 25px auto 0 auto;
@@ -126,13 +111,11 @@ button, #generate {
     margin-right: auto !important;
 }
 
-/* hover：像网页错位一样的 jitter */
 button:hover, #generate:hover {
     left: 1px;
     top: -1px;
 }
 
-/* active：反向 jitter */
 button:active, #generate:active {
     left: -1px;
     top: 1px;
@@ -144,7 +127,6 @@ button:active, #generate:active {
     text-align: center;
 }
 
-/* 顶部状态区：盖章保留，但做旧处理 */
 .status-stamp {
     font-family: "Arial Black", sans-serif;
     font-size: 22px;
@@ -154,7 +136,7 @@ button:active, #generate:active {
     background: #fff4f4;
     color: #7a0000;
 
-    display: inline-block; /* 保持 inline-block 才能被父容器的 text-align: center; 居中 */
+    display: inline-block;
     margin-bottom: 8px;
     transform: rotate(-1deg);
 
@@ -172,7 +154,6 @@ button:active, #generate:active {
     line-height: 1.4;
 }
 
-/* 90s 蓝色链接 */
 a {
     color: #0000ee;
 }
@@ -180,10 +161,9 @@ a:visited {
     color: #551a8b;
 }
 
-/* 粗糙淡入动画：与 landing page 一致 */
 #visa-container {
     animation: visaFade 1s steps(4) forwards;
-    opacity: 0; /* 初始透明 */
+    opacity: 0; 
 }
 
 @keyframes visaFade {

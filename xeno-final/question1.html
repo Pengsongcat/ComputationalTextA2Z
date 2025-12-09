@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="css/question.css">
+  <script src="js/storage.js"></script>
+</head>
+
+<body class="question-body">
+
+  <div class="question-container">
+    <h2 class="q-title">Pre-Entry Assessment – Segment 1</h2>
+
+    <p class="q-text">
+      Before generating your XENO Visa,<br>
+      please provide the following information.
+    </p>
+
+    <label>Your Name</label>
+    <input id="q-name" type="text">
+
+    <button id="next">Continue</button>
+  </div>
+
+  <script>
+    document.getElementById("next").onclick = () => {
+      saveAnswer("givenName", document.getElementById("q-name").value);
+      window.location.href = "question2.html";
+    };
+  </script>
+
+</body>
+</html>

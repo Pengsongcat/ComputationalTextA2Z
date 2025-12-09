@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="css/question.css">
+    <script src="js/storage.js"></script>
+</head>
+
+<body class="question-body">
+
+<div class="question-container">
+
+    <h2 class="q-title">PRE-ENTRY CHECKPOINT 03</h2>
+
+    <p class="q-text">
+      The Federation requires clarification<br>
+      on your preferred embodiment tendencies.
+    </p>
+
+    <label>Your Embodied Mode (legacy form)</label>
+    <input id="embodied" type="text">
+
+    <button id="next">Continue</button>
+</div>
+
+<script>
+document.getElementById("next").onclick = () => {
+    saveAnswer("embodied", 
+        document.getElementById("embodied").value
+    );
+    window.location.href = "question5.html";
+};
+</script>
+
+</body>
+</html>
