@@ -1,160 +1,180 @@
-/* 定义高饱和度的 Y2K 颜色变量 */
-:root {
-    --y2k-pink: #ff00ff;       /* 洋红，标签色/主色 */
-    --y2k-green: #00ff00;      /* 荧光绿，内容色 */
-    --y2k-cyan: #00ffff;       /* 荧光青，边框/辅助色 */
-    --dark-bg: #030303;        /* 接近纯黑的背景 */
-    --card-bg: #111111;        /* 卡片背景 */
-    --text-color-main: #f0f0f0; /* 基础白色文本 */
+/* ===== XENO Federation — Low-fi Archive CSS (修正版) ===== */
+
+/* 页面背景：像旧系统/旧数据库。深墨绿背景，模拟旧式CRT显示器 */
+body {
+    background: #002211; /* 深墨绿色，比之前的 #073115 更深 */
+    color: #111111; /* 主文本颜色略深 */
+    font-family: Verdana, Arial, sans-serif;
+    font-size: 13px;
+    line-height: 1.5; /* 增加行高以提高可读性 */
+    padding: 30px;
+    margin: 0;
+    /* 增加一个细微的CRT扫描线效果 */
+    background-image: linear-gradient(rgba(0, 100, 0, 0.1) 1px, transparent 1px);
+    background-size: 100% 2px;
 }
 
-body {
-    background: var(--dark-bg);
-    background-image: 
-        linear-gradient(rgba(0, 255, 0, 0.1) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 0, 255, 0.1) 1px, transparent 1px);
-    background-size: 8px 8px; 
-    
-    font-family: "Courier New", monospace; 
-    color: var(--text-color-main); 
-    display: flex;
-    flex-direction: column; /* 允许垂直排列卡片和按钮 */
-    align-items: center;
+/* 外层签证容器：像陈旧的政府文档 */
+#visa-container {
+    width: 760px; /* 略微加宽 */
+    margin: 40px auto;
+    /* 边框和背景，模拟陈旧的、略微发黄的纸张 */
+    border: 2px solid #333333; /* 粗糙的深色边框 */
+    background: #ffffed; /* 略带米黄色的纸张感 */
+    box-shadow: 4px 4px 0 #000000; /* 明显的深色阴影，增加文档的重量感 */
     padding: 30px;
 }
 
-#visa-container {
-    width: 750px; /* 增加卡片宽度，满足要求 */
-    background: var(--card-bg); 
-    padding: 0;
-    border: 3px solid var(--y2k-pink); 
-    box-shadow: 0 0 15px rgba(255, 0, 255, 0.6); 
-    
-    /* 保持卡片倾斜 */
-    transform: skewX(-2deg); 
-    position: relative;
-    overflow: hidden;
-    margin-bottom: 20px; /* 增加与下方按钮的间距 */
-}
-
-/* 头部 */
+/* Header: 简单压紧的旧系统标题 */
 #visa-header {
-    background: var(--y2k-pink);
-    color: var(--dark-bg);
-    font-size: 28px;
-    padding: 15px 25px;
-    letter-spacing: 5px;
-    font-weight: 900;
-    text-shadow: 2px 2px 0 var(--y2k-green);
-    border-bottom: 5px dashed var(--y2k-green); 
-    
-    /* 抵消卡片倾斜，使文字保持水平 */
-    transform: skewX(2deg); 
+    font-weight: 700; /* 加粗 */
+    font-size: 16px;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    /* 底部增加一条粗糙的下划线 */
+    border-bottom: 1px solid #777777;
+    padding-bottom: 5px;
 }
 
+/* VISA 主体区域：左图 + 右文 */
 #visa-body {
     display: flex;
-    padding: 30px 25px; 
-    gap: 40px; /* 增加照片与信息区域的间距 */
-    
-    /* 确保内容区域保持水平 */
-    transform: none; 
+    gap: 30px; /* 增加间距 */
 }
 
-/* 照片区 */
+/* 假照片区：像旧签证空白区 */
 #visa-photo {
-    width: 150px; 
-    height: 180px; 
-    background: #000;
-    border: 3px solid var(--y2k-cyan);
-    box-shadow: 0 0 15px var(--y2k-cyan); 
+    width: 160px;
+    height: 200px;
+    background: #e0e0e0; /* 浅灰色背景 */
+    border: 1px solid #333333; /* 黑色边框 */
     flex-shrink: 0;
-    position: relative;
+    /* 增加一个明显的照片留白阴影，模拟嵌入感 */
+    box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
 
+/* 字段区域 */
 #visa-info {
     flex: 1;
-    font-size: 15px;
-    line-height: 1.5;
-    font-family: "Courier New", monospace;
-    display: flex;
-    flex-direction: column;
 }
 
-/* 关键样式：标签和值的排版 */
+/* 字段行：像旧档案条目 */
 .field {
+    margin-bottom: 8px; /* 增加行间距 */
     display: flex;
-    align-items: flex-start; 
-    margin-bottom: 12px;
-    padding-bottom: 4px;
-    
-    border-bottom: 1px dotted rgba(255, 0, 255, 0.4); 
+    align-items: flex-start; /* 顶部对齐，保证长文本清晰 */
 }
 
+/* 字段标签：更具文档化风格 */
 .label {
-    /* 减小标签宽度 (从 250px 减小到 200px)，给绿色内容留出更多空间 */
-    width: 200px; 
-    min-width: 200px; 
-    font-weight: 700; 
-    color: var(--y2k-pink); 
-    flex-shrink: 0;
-    padding-right: 15px;
-    text-transform: uppercase;
-    
-    /* 允许换行，但更倾向于单行显示 */
-    white-space: pre; 
-    line-height: 1.5; 
-}
-
-.value {
-    flex: 1; /* 占据剩余所有空间 (现在更多了) */
-    white-space: normal;
-    word-break: break-word;
-    
-    color: var(--y2k-green); 
-    font-weight: 400; 
-    line-height: 1.5; 
-    text-shadow: 0 0 3px rgba(0, 255, 0, 0.4); 
-}
-
-/* MRZ */
-#visa-mrz {
-    font-family: "OCR-A", monospace;
-    font-size: 16px; 
-    background: var(--dark-bg); 
-    border-top: 2px solid var(--y2k-pink);
-    padding: 10px 25px;
-    letter-spacing: 4px; 
-    color: var(--y2k-cyan); 
+    width: 200px; /* 略微加宽，确保标签完整性 */
+    min-width: 200px;
     font-weight: 700;
-    text-align: left;
-    
-    /* 抵消卡片倾斜，使文字保持水平 */
-    transform: skewX(2deg); 
+    color: #000000;
+    white-space: pre-line;
+    /* 增加一个冒号，更像标准表格 */
+    position: relative;
+    padding-right: 10px;
+}
+.label::after {
+    content: ":";
+    position: absolute;
+    right: 5px;
+    font-weight: 700;
 }
 
-/* 按钮：独立于 #visa-container */
-button {
-    /* 设置一个固定的、与卡片宽度相匹配的宽度 */
-    width: 750px; 
-    padding: 18px;
-    font-size: 18px;
-    font-weight: 800;
-    background: var(--y2k-pink);
-    color: var(--dark-bg);
-    border: 4px outset var(--y2k-green); 
-    cursor: pointer;
+/* 字段值：统一使用 Verdana 字体 */
+.value {
+    flex: 1;
+    /* 核心修正：使用 Verdana 字体 */
+    font-family: Verdana, Arial, sans-serif; 
+    color: #333333; /* 值略微变深 */
+    word-wrap: break-word;
+}
+
+/* MRZ（机器可读区）：强调代码字体 */
+#visa-mrz {
+    margin-top: 25px;
+    font-family: "Courier New", monospace; /* MRZ 仍使用等宽字体 */
+    font-size: 14px;
+    letter-spacing: 1px;
+    padding: 10px 0;
+    border-top: 2px solid #000000; /* 更粗的黑线 */
+    border-bottom: 2px solid #000000;
+    line-height: 1.4;
+    color: #000000;
+    background: #e9e6df; /* 背景略微变暗，与白色文档形成对比 */
+}
+
+/* 按钮：经典的 Windows 95 3D 浮雕 */
+button, #generate {
+    display: block;
+    width: 300px; /* 固定宽度 */
+    margin: 30px auto 0 auto;
+    font-size: 13px;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    transition: all 0.1s ease-in-out;
     
-    /* 按钮也倾斜 */
-    transform: skewX(-2deg); 
+    /* 3D 浮雕效果 */
+    background: #c0c0c0; /* 按钮主体灰色 */
+    color: #000000;
+    border: 3px outset #f0f0f0; /* 浅色外边框 */
+    border-bottom-color: #555555;
+    border-right-color: #555555;
+    padding: 6px 15px;
+    cursor: pointer;
+    font-family: Verdana, Arial, sans-serif;
+    letter-spacing: 0.5px;
+    box-shadow: 1px 1px 0 #000;
 }
 
-button:hover {
-    background: var(--y2k-green);
-    color: var(--dark-bg);
-    border-color: var(--y2k-pink);
-    box-shadow: 0 0 15px var(--y2k-green);
+button:active, #generate:active {
+    /* 凹陷效果 */
+    border: 3px inset #555555;
+    background: #b0b0b0;
+    box-shadow: none;
+    transform: translateY(1px); /* 模拟按下去 */
+}
+
+
+/* 状态区：增强印章感 */
+#visa-status {
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.status-stamp {
+    font-family: "Arial Black", sans-serif; /* 使用更粗的字体模拟印章 */
+    font-size: 25px;
+    font-weight: 900;
+    padding: 8px 15px;
+    display: inline-block;
+    border: 3px double #5a1212; /* 红色双线边框，像已盖章 */
+    color: #990000; /* 红色文字 */
+    background: #fffafa; /* 浅红色背景 */
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    /* 轻微旋转，模拟手工盖章 */
+    transform: rotateZ(-1deg);
+    box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+}
+
+.status-sub {
+    font-size: 13px;
+    color: #9d9d9d; /* 修正：使用深灰色 #444，而不是 #b0a9a9 */
+    max-width: 650px;
+    line-height: 1.4;
+    margin: 20px auto 0 auto; /* 核心修正：修复 margin-top: 20 auto; */
+    text-align: center; /* 确保文本块内的内容也居中 */
+}
+
+/* 链接样式，在黑字浅底上保持可识别性 */
+a {
+    color: #0066cc; /* 更深的蓝色 */
+    text-decoration: underline;
+}
+a:visited {
+    color: #800080; /* 紫色 */
 }

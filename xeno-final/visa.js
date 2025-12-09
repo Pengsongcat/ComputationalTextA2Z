@@ -42,27 +42,27 @@ function generate() {
   let controlNumber = makeControlNumber(issue);
 
   function wrapField(label, value) {
-    return `
-      <div class="field">
-        <span class="label">${label}</span>
-        <span class="value">${value}</span>
-      </div>
-    `;
-  }
+  return `
+    <div class="field">
+      <span class="label">${label}</span>
+      <span class="value">${value}</span>
+    </div>
+  `;
+}
 
   let html = `
-    ${wrapField("Control Number:", controlNumber)}
-    ${wrapField("Given Name:", name)}
-    ${wrapField("Visa Type / Class:", visaCode)}
-    ${wrapField("Pronoun Mode:", pron)}
-    ${wrapField("Age:", age)}
-    ${wrapField("Embodied Mode\n[Legacy Gender]:", embodied)}
-    ${wrapField("Body Form:", bodyform)}
-    ${wrapField("Mental Form:", mental)}
-    ${wrapField("Reproduction\nPattern:", repro)}
-    ${wrapField("Relational\nConfiguration:", relation)}
-    ${wrapField("Issue Date:", issueStr)}
-    ${wrapField("Expiration Date:", expStr)}
+    ${wrapField("Given Name", name)}
+    ${wrapField("Control Number", controlNumber)}
+    ${wrapField("Visa Type / Class", visaCode)}
+    ${wrapField("Pronoun Mode", pron)}
+    ${wrapField("Age", age)}
+    ${wrapField("Embodied Mode\n[Legacy Gender]", embodied)}
+    ${wrapField("Body Form", bodyform)}
+    ${wrapField("Mental Form", mental)}
+    ${wrapField("Reproduction Pattern", repro)}
+    ${wrapField("Relational Configuration", relation)}
+    ${wrapField("Issue Date ", issueStr)}
+    ${wrapField("Expiration Date", expStr)}
   `;
 
   select('#visa-info').html(html);
