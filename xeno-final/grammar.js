@@ -298,9 +298,9 @@ let data = {
 // Soft-Float（soft · light）
 
 "soft_float_form": [
-  "#soft_mat# #soft_shape#",
-  "#soft_shape#, #soft_motion#",
-  "#soft_mat# form, #soft_motion#",
+  "#soft_mat.capitalize# #soft_shape#",
+  "#soft_shape.capitalize#, #soft_motion#",
+  "#soft_mat.capitalize# form, #soft_motion#",
   "Shows a #soft_mat# quality, #soft_motion#"
 ],
 
@@ -332,8 +332,8 @@ let data = {
 // Dense-Solid（dense · heavy）
 
 "dense_solid_form": [
-  "#dense_mat# #dense_shape#",
-  "#dense_shape#, #dense_motion#",
+  "#dense_mat.capitalize# #dense_shape#",
+  "#dense_shape.capitalize#, #dense_motion#",
   "Displays a #dense_mat# structure, #dense_motion#"
 ],
 
@@ -365,8 +365,8 @@ let data = {
 // Flat-Compressed（flat · compressed）
 
 "flat_compressed_form": [
-  "#flat_mat# #flat_shape#",
-  "#flat_shape#, #flat_motion#",
+  "#flat_mat.capitalize# #flat_shape#",
+  "#flat_shape.capitalize#, #flat_motion#",
   "Appears in a #flat_mat# state, #flat_motion#"
 ],
 
@@ -398,8 +398,8 @@ let data = {
 //Twist-Shifting（twisting · shifting）
 
 "twist_shifting_form": [
-  "#twist_mat# #twist_shape#",
-  "#twist_shape#, #twist_motion#",
+  "#twist_mat.capitalize# #twist_shape#",
+  "#twist_shape.capitalize#, #twist_motion#",
   "Shows a #twist_mat# frame, #twist_motion#"
 ],
 
@@ -430,8 +430,8 @@ let data = {
 
 // Fragment-Segment（fragmented · modular）
 "fragment_segment_form": [
-  "#frag_mat# #frag_shape#",
-  "#frag_shape#, #frag_motion#",
+  "#frag_mat.capitalize# #frag_shape#",
+  "#frag_shape.capitalize#, #frag_motion#",
   "Appears as a #frag_mat# structure, #frag_motion#"
 ],
 
@@ -474,7 +474,7 @@ let data = {
 
 // onvergent Stream
 "mf_stream": [
-  "#mf_stream_texture#, #mf_stream_behavior#",
+  "#mf_stream_texture.capitalize#, #mf_stream_behavior#",
   "Mind shows #mf_stream_texture#, #mf_stream_behavior#",
   "Processing follows #mf_stream_texture#, #mf_stream_behavior#"
 ],
@@ -498,7 +498,7 @@ let data = {
 
 // Resonant Veil
 "mf_resonant": [
-  "#mf_res_texture#, #mf_res_behavior#",
+  "#mf_res_texture.capitalize#, #mf_res_behavior#",
   "Mind presents #mf_res_texture#, #mf_res_behavior#",
   "Processing involves #mf_res_texture#, #mf_res_behavior#"
 ],
@@ -522,7 +522,7 @@ let data = {
 
 // Relational Weave
 "mf_weave": [
-  "#mf_weave_texture#, #mf_weave_behavior#",
+  "#mf_weave_texture.capitalize#, #mf_weave_behavior#",
   "Mind displays #mf_weave_texture#, #mf_weave_behavior#",
   "Processing shaped by #mf_weave_texture#, #mf_weave_behavior#"
 ],
@@ -546,7 +546,7 @@ let data = {
 
 // Impulse Flare
 "mf_flare": [
-  "#mf_flare_texture#, #mf_flare_behavior#",
+  "#mf_flare_texture.capitalize#, #mf_flare_behavior#",
   "Mind exhibits #mf_flare_texture#, #mf_flare_behavior#",
   "Processing characterized by #mf_flare_texture#, #mf_flare_behavior#"
 ],
@@ -570,7 +570,7 @@ let data = {
 
 // inward Spiral
 "mf_inward": [
-  "#mf_in_texture#, #mf_in_behavior#",
+  "#mf_in_texture.capitalize#, #mf_in_behavior#",
   "Mind shows #mf_in_texture#, #mf_in_behavior#",
   "Processing formed by #mf_in_texture#, #mf_in_behavior#"
 ],
@@ -594,7 +594,7 @@ let data = {
 
 // Scatter Shift
 "mf_scatter": [
-  "#mf_s_texture#, #mf_s_behavior#",
+  "#mf_s_texture.capitalize#, #mf_s_behavior#",
   "Mind presents #mf_s_texture#, #mf_s_behavior#",
   "Processing defined by #mf_s_texture#, #mf_s_behavior#"
 ],
@@ -630,51 +630,51 @@ let data = {
 ],
 
 "rc_self_aligned": [
-  "functions primarily through self-alignment",
-  "maintains a stable internal companionship loop",
-  "relies on inward balance for ongoing support",
-  "operates as a single-form arrangement",
-  "sustains itself without external anchoring"
+  "Functions primarily through self-alignment",
+  "Maintains a stable internal companionship loop",
+  "Relies on inward balance for ongoing support",
+  "Operates as a single-form arrangement",
+  "Sustains itself without external anchoring"
 ],
 
 "rc_shadow_pair": [
-  "maintains a steady one-to-one pairing",
-  "linked consistently with a familiar counterpart",
-  "forms a long-term reflective partnership",
-  "keeps close alignment with a single known presence",
-  "engages in a stable mutual-mirroring relationship"
+  "Maintains a steady one-to-one pairing",
+  "Linked consistently with a familiar counterpart",
+  "Forms a long-term reflective partnership",
+  "Keeps close alignment with a single known presence",
+  "Engages in a stable mutual-mirroring relationship"
 ],
 
 "rc_resonance": [
-  "maintains long-term mutual attunement with one entity",
-  "holds a stable, ongoing two-way support pattern",
-  "sustains a deep shared rhythm with a specific presence",
-  "keeps a consistent companion in close coordination",
-  "operates within a long-duration paired attunement"
+  "Maintains long-term mutual attunement with one entity",
+  "Holds a stable, ongoing two-way support pattern",
+  "Sustains a deep shared rhythm with a specific presence",
+  "Keeps a consistent companion in close coordination",
+  "Operates within a long-duration paired attunement"
 ],
 
 "rc_drifting": [
-  "moves among multiple light connections",
-  "maintains a loose network of shifting contacts",
-  "keeps several soft, fluid points of interaction",
-  "navigates freely across multiple ongoing links",
-  "engages in open, multi-directional companionship"
+  "Moves among multiple light connections",
+  "Maintains a loose network of shifting contacts",
+  "Keeps several soft, fluid points of interaction",
+  "Navigates freely across multiple ongoing links",
+  "Engages in open, multi-directional companionship"
 ],
 
 "rc_transient": [
-  "connections tend to form in brief passing moments",
-  "interaction often appears and fades naturally",
-  "relations emerge at short intersections of contact",
-  "alignment dissolves soon after the point of meeting",
-  "patterns of closeness follow no fixed duration"
+  "Connections tend to form in brief passing moments",
+  "Interaction often appears and fades naturally",
+  "Relations emerge at short intersections of contact",
+  "Alignment dissolves soon after the point of meeting",
+  "Patterns of closeness follow no fixed duration"
 ],
 
 "rc_non_aligned": [
-  "shows low inclination toward external linkage",
-  "operates steadily in single-form mode",
-  "responds minimally to outward connection cues",
-  "external linking remains in a prolonged idle state",
-  "primarily completes cycles through internal regulation"
+  "Shows low inclination toward external linkage",
+  "Operates steadily in single-form mode",
+  "Responds minimally to outward connection cues",
+  "External linking remains in a prolonged idle state",
+  "Primarily completes cycles through internal regulation"
 ]
 
 }
